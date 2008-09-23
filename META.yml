@@ -1,0 +1,16 @@
+--- #YAML:1.0
+name:                HTML-Widget-Plugin-JS
+version:             0.001
+abstract:            a JavaScript combo box widget
+license:             perl
+author:              
+    - Ricardo Signes <rjbs@cpan.org>
+generated_by:        ExtUtils::MakeMaker version 6.44
+distribution_type:   module
+requires:     
+    Data::JavaScript::Anon:        0
+    HTML::Widget::Factory:         0
+    Test::More:                    0
+meta-spec:
+    url:     http://module-build.sourceforge.net/META-spec-v1.3.html
+    version: 1.3
