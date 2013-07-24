@@ -1,24 +1,24 @@
---- #YAML:1.0
-name:               HTML-Widget-Plugin-JS
-version:            0.002
-abstract:           a JavaScript variable declaration emitter
+---
+abstract: 'a JavaScript variable declaration emitter'
 author:
-    - Ricardo Signes <rjbs@cpan.org>
-license:            perl
-distribution_type:  module
-configure_requires:
-    ExtUtils::MakeMaker:  0
+  - 'Ricardo Signes <rjbs@cpan.org>'
 build_requires:
-    ExtUtils::MakeMaker:  0
-requires:
-    Data::JavaScript::Anon:  0
-    HTML::Widget::Factory:  0
-    Test::More:           0
-no_index:
-    directory:
-        - t
-        - inc
-generated_by:       ExtUtils::MakeMaker version 6.55_02
+  ExtUtils::MakeMaker: 0
+configure_requires:
+  ExtUtils::MakeMaker: 0
+dynamic_config: 1
+generated_by: 'ExtUtils::MakeMaker version 6.7, CPAN::Meta::Converter version 2.131560'
+license: perl
 meta-spec:
-    url:      http://module-build.sourceforge.net/META-spec-v1.4.html
-    version:  1.4
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: HTML-Widget-Plugin-JS
+no_index:
+  directory:
+    - t
+    - inc
+requires:
+  Data::JavaScript::Anon: 0
+  HTML::Widget::Factory: 0
+  Test::More: 0
+version: 0.003
