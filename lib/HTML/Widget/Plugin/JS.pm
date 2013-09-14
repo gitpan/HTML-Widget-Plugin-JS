@@ -1,20 +1,11 @@
 use strict;
 use warnings;
-
 package HTML::Widget::Plugin::JS;
-use base qw(HTML::Widget::Plugin);
-
-=head1 NAME
-
-HTML::Widget::Plugin::JS - a JavaScript variable declaration emitter
-
-=head1 VERSION
-
-version 0.003
-
-=cut
-
-our $VERSION = '0.003';
+{
+  $HTML::Widget::Plugin::JS::VERSION = '0.004';
+}
+use parent qw(HTML::Widget::Plugin);
+# ABSTRACT: a JavaScript variable declaration emitter
 
 use Data::JavaScript::Anon;
 
@@ -22,6 +13,41 @@ sub provided_widgets { qw(js_var js_vars js_anon) }
 
 sub boolean_args {}
 sub attribute_args {}
+
+
+sub js_vars {
+  my ($self, $factory, $arg) = @_;
+
+  my $str =
+    join "\n",
+    map  { Data::JavaScript::Anon->var_dump($_ => $arg->{$_}) }
+    keys %$arg;
+
+  return $str;
+}
+
+BEGIN { *js_var = \&js_vars }
+
+
+sub js_anon {
+  my ($self, $factory, $arg) = @_;
+
+  Data::JavaScript::Anon->anon_dump($arg);
+}
+
+1;
+
+__END__
+
+=pod
+
+=head1 NAME
+
+HTML::Widget::Plugin::JS - a JavaScript variable declaration emitter
+
+=head1 VERSION
+
+version 0.004
 
 =head2 js_var
 
@@ -42,45 +68,21 @@ In otherwords, this widget:
   var foo = { a: 1, b: 2 };
   var bar = [ 1, 2, 3 ];
 
-=cut
-
-sub js_vars {
-  my ($self, $factory, $arg) = @_;
-  
-  my $str =
-    join "\n",
-    map  { Data::JavaScript::Anon->var_dump($_ => $arg->{$_}) }
-    keys %$arg;
-
-  return $str;
-}
-
-BEGIN { *js_var = \&js_vars }
-
 =head2 js_anon
 
 This widget converts a given data structure to an anonymous JavaScript
 structure.  This basically just provides a widget factory interface to
 Data::JavaScript::Anon.
 
-=cut
+=head1 AUTHOR
 
-sub js_anon {
-  my ($self, $factory, $arg) = @_;
+Ricardo SIGNES
 
-  Data::JavaScript::Anon->anon_dump($arg);
-}
+=head1 COPYRIGHT AND LICENSE
 
+This software is copyright (c) 2008 by Ricardo SIGNES.
 
-=head2 AUTHOR
-
-This code was written by Ricardo SIGNES.
-
-=head2 COPYRIGHT
-
-This code is copyright (c) 2008, Ricardo SIGNES.  It is free software,
-available under the same terms as perl itself.
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
-
-1;

@@ -1,19 +1,13 @@
-HTML-Widget-Plugin-JS
 
-INSTALLATION
 
-To install this module, run the following commands:
+This archive contains the distribution HTML-Widget-Plugin-JS,
+version 0.004:
 
-    perl Makefile.PL
-    make
-    make test
-    make install
+  a JavaScript variable declaration emitter
 
-COPYRIGHT AND LICENCE
+This software is copyright (c) 2008 by Ricardo SIGNES.
 
-Put the correct copyright and licence information here.
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
-Copyright (C) 2008 Ricardo Signes
 
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
